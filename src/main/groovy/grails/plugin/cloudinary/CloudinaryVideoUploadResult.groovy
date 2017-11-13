@@ -1,0 +1,32 @@
+package grails.plugin.cloudinary
+
+class CloudinaryVideoUploadResult {
+
+    String publicId
+    long version
+    String signature
+    int width
+    int height
+    String format
+    String resourceType
+    Date createdAt
+    long bytes
+    String type
+    String etag
+    String url
+    String secureUrl
+    String audioJson
+    String videoJson
+    String frameRate
+    String bitRate
+    String duration
+
+    @Override
+    String toString() {
+        getClass().simpleName + '{' + metaClass.properties.findAll { it.name != 'class' }.collect {
+            def value = this[it.name]
+            String quote = it.type == String && value != null ? "'" : ''
+            it.name + '=' + quote + value + quote
+        }.join(', ') + '} ' + super.toString()
+    }
+}
